@@ -3,24 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <title>GOODTRUST SS26 ODM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Analytics 4 -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLWR2PMHP6"></script>
   <script>
+    const targetUrl = "https://www.notion.so/Performance-Golf-Wear-23359ceee8a681d39c38f275a424c7a4";
+
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
     gtag('js', new Date());
-    gtag('config', 'G-PLWR2PMHP6');
+    gtag('config', 'G-PLWR2PMHP6', { transport_type: 'beacon' });
 
-    // Redirect AFTER GA has time to send
-    setTimeout(function () {
-      window.location.href = "https://www.notion.so/Performance-Golf-Wear-23359ceee8a681d39c38f275a424c7a4";
-    }, 800); // 0.8초
+    function go() { window.location.replace(targetUrl); }
+
+    // GA 이벤트 전송 후 이동 (가장 안정적)
+    gtag('event', 'landing_view', {
+      send_to: 'G-PLWR2PMHP6',
+      event_callback: go
+    });
+
+    // 혹시 callback이 안 오면 2.5초 후 강제 이동
+    setTimeout(go, 2500);
   </script>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-
 <body>
   Redirecting…
 </body>
