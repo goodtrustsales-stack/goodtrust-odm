@@ -5,30 +5,38 @@
   <title>GOODTRUST SS26 ODM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLWR2PMHP6"></script>
   <script>
     const targetUrl = "https://www.notion.so/Performance-Golf-Wear-23359ceee8a681d39c38f275a424c7a4";
+    const params = new URLSearchParams(location.search);
+    const noRedirect = params.get("noredirect") === "1";
 
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-
     gtag('js', new Date());
+
+    // 전송 안정화
     gtag('config', 'G-PLWR2PMHP6', { transport_type: 'beacon' });
 
     function go() { window.location.replace(targetUrl); }
 
-    // GA 이벤트 전송 후 이동 (가장 안정적)
-    gtag('event', 'landing_view', {
-      send_to: 'G-PLWR2PMHP6',
-      event_callback: go
-    });
-
-    // 혹시 callback이 안 오면 2.5초 후 강제 이동
-    setTimeout(go, 2500);
+    // 디버그용: 리다이렉트 안 하는 모드
+    if (noRedirect) {
+      // 이벤트 하나 강제로 쏴서 Realtime에서 확인 가능하게
+      gtag('event', 'landing_view', { debug_mode: true });
+      window.__go = go;
+    } else {
+      // 이벤트 전송 시도 후 이동
+      gtag('event', 'landing_view', { event_callback: go });
+      // 안전장치
+      setTimeout(go, 2000);
+    }
   </script>
 </head>
-<body>
-  Redirecting…
+<body style="font-family:system-ui; padding:24px;">
+  <h3>GOODTRUST SS26 ODM</h3>
+  <p>If you are not redirected automatically, <a href="https://www.notion.so/Performance-Golf-Wear-23359ceee8a681d39c38f275a424c7a4">click here</a>.</p>
+  <p style="opacity:.7">Debug: add <code>?noredirect=1</code> to stop redirect.</p>
+  <button onclick="window.__go && window.__go()" style="padding:10px 14px;">Go to Notion</button>
 </body>
 </html>
