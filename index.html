@@ -1,39 +1,21 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <title>GOODTRUST SS26 ODM</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- GA4 -->
+  <!-- Google Analytics GA4 tracking -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLWR2PMHP6"></script>
   <script>
-    const targetUrl = "https://www.notion.so/Performance-Golf-Wear-23359ceee8a681d39c38f275a424c7a4";
-
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-PLWR2PMHP6', { transport_type: 'beacon' });
+    gtag('config', 'G-PLWR2PMHP6');
 
-    function go(){
-      window.location.href = targetUrl;
-    }
-
-    // 1) 랜딩 페이지 뷰(노션으로 넘어가기 전에 1번 찍기)
-    // 2) 이벤트 콜백 오면 즉시 이동, 안 오면 1200ms 후 강제 이동
-    window.addEventListener('load', function () {
-      gtag('event', 'landing_view', {
-        page_location: location.href,
-        page_referrer: document.referrer || '',
-        event_callback: go
-      });
-      setTimeout(go, 1200);
-    });
+    // Redirect to Notion page
+    setTimeout(function() {
+      window.location.href = "https://www.notion.so/Performance-Golf-Wear-23359ceee8a681d39c38f275a424c7a4";
+    }, 20);
   </script>
 </head>
-<body style="font-family:system-ui; padding:24px;">
-  <h3>Redirecting...</h3>
-  <p>If you are not redirected, <a href="https://www.notion.so/Performance-Golf-Wear-23359ceee8a681d39c38f275a424c7a4">click here</a>.</p>
+<body>
+Redirecting...
 </body>
 </html>
