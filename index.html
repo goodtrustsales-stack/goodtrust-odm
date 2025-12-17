@@ -11,10 +11,12 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-PLWR2PMHP6');
-  </script>
 
-  <!-- Redirect to Notion after GA loads -->
-  <meta http-equiv="refresh" content="0; url=https://www.notion.so/Performance-Golf-Wear-23359ceee8a681d39c38f275a424c7a4" />
+    // Redirect AFTER GA has time to send
+    setTimeout(function () {
+      window.location.href = "https://www.notion.so/Performance-Golf-Wear-23359ceee8a681d39c38f275a424c7a4";
+    }, 800); // 0.8초
+  </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
