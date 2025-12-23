@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!-- Google Analytics GA4 tracking -->
+  <meta charset="UTF-8">
+  <title>Redirecting to GOODTRUST ODM Vol.1</title>
+
+  <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLWR2PMHP6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-PLWR2PMHP6');
 
-    // Redirect to Notion page
-    setTimeout(function() {
-      window.location.href = "https://www.notion.so/Performance-Golf-Wear-23359ceee8a681d39c38f275a424c7a4";
-    }, 20);
+    gtag('config', 'G-PLWR2PMHP6', {
+      'send_page_view': true
+    });
+
+    // Redirect to Notion page (delay to ensure GA hit)
+    setTimeout(function () {
+      window.location.href = "https://www.notion.so/GOODTRUST-2025-26-S-S-ODM-Vol-1-23359ceee8a680679a3ce33f79b1a48c";
+    }, 300);
   </script>
 </head>
+
 <body>
-Redirecting...
+  <p>Redirecting to GOODTRUST ODM Collection…</p>
 </body>
 </html>
